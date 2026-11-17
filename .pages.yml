@@ -1,0 +1,60 @@
+media: assets/img
+content:
+  - name: posts
+    label: المنشورات
+    type: collection
+    path: content/posts
+    view: {fields: [title, section, status]}
+    fields:
+      - {name: title, label: العنوان, type: string, required: true}
+      - name: section
+        label: القسم
+        type: select
+        options: {values: [{value: news, label: آخر الأخبار}, {value: aid, label: المساعدات}, {value: jobs, label: الوظائف}, {value: books, label: الكتب والروايات}, {value: unis, label: الجامعات}, {value: orgs, label: المؤسسات}, {value: wallets, label: المحافظ والبنوك}, {value: grants, label: المنح الدراسية}, {value: edu, label: الرزم التعليمية}, {value: sims, label: شرائح الإنترنت}, {value: topup, label: شحن الرصيد وحزم جوال وأوريدو}, {value: ai, label: اشتراكات الذكاء الاصطناعي}]}
+      - {name: id, label: رقم المنشور (اتركه فارغاً ليتولد تلقائياً), type: number}
+      - {name: org, label: اسم المؤسسة, type: string}
+      - {name: of, label: اسم ملف صفحة المؤسسة (لربط المنشور بالمؤسسة، اختياري), type: string}
+      - {name: aliases, label: كلمات بحث إضافية (اختياري، افصل بمسافة: عربي وإنجليزي), type: string}
+      - {name: logo, label: شعار المؤسسة (صورة), type: image}
+      - name: category
+        label: التصنيف (نوع المساعدة، أو نوع الشريحة، أو نوع الاشتراك)
+        type: select
+        options: {values: [غذائية, مالية, طبية, تعليمية, إيواء, eSIM, بلاستيك, ذكاء اصطناعي, ترفيه, تصميم, غاز, توجيهي, جامعات, المرحلة الأساسية, الثانوية, جوال, أوريدو, خدمات]}
+      - name: status
+        label: حالة التسجيل
+        type: select
+        options: {values: [{value: open, label: مفتوح}, {value: soon, label: قريباً}, {value: closed, label: مغلق}]}
+      - {name: close_date, label: آخر موعد (الحالة بتتحول لمغلق تلقائياً), type: date, options: {format: yyyy-MM-dd}}
+      - {name: beneficiaries, label: المستفيدون, type: string}
+      - {name: aid, label: نوع المساعدة أو الفرصة, type: string}
+      - {name: link, label: الرابط الرسمي, type: string}
+      - {name: link_label, label: نص الزر الأول (اختياري), type: string}
+      - {name: link2, label: رابط ثاني مثل التحديث (اختياري), type: string}
+      - {name: link2_label, label: نص الزر الثاني (اختياري), type: string}
+      - {name: verified, label: تاريخ آخر تحقق, type: date, options: {format: yyyy-MM-dd}}
+      - {name: date, label: تاريخ النشر, type: date, options: {format: yyyy-MM-dd}}
+      - {name: price1, label: السعر لشهر واحد (للمتجر), type: string}
+      - {name: price_text, label: نص بدل السعر (مثل: حسب المبلغ), type: string}
+      - {name: old_price, label: السعر قبل الخصم (اختياري، للمتجر), type: string}
+      - {name: price3, label: السعر لـ 3 شهور (للمتجر), type: string}
+      - {name: specs, label: المواصفات (سطر لكل ميزة), type: string, list: true}
+      - name: buttons
+        label: أزرار روابط إضافية (تحميل، تحديث...)
+        type: object
+        list: true
+        fields:
+          - {name: label, label: نص الزر, type: string}
+          - {name: url, label: الرابط, type: string}
+      - {name: short, label: اسم قصير يظهر تحت الأيقونة (اختياري), type: string}
+      - {name: pay, label: عرض طرق الدفع بالصفحة (true/false), type: boolean}
+      - {name: tag, label: وسم صغير يظهر على البطاقة (مثل غير مجابة), type: string}
+      - {name: order, label: ترتيب العرض داخل القسم (رقم، اختياري), type: number}
+      - {name: summary, label: وصف قصير (جملة وحدة), type: string}
+      - {name: body, label: الشرح والصور, type: rich-text}
+  - name: pages
+    label: الصفحات الثابتة
+    type: collection
+    path: content/pages
+    fields:
+      - {name: title, label: العنوان, type: string}
+      - {name: body, label: المحتوى, type: rich-text}
